@@ -24,7 +24,7 @@ There are a few more categories added in.
 ### Install `drivel`:
 
 ```bash
-pip install drivel
+pip install py-drivel
 ```
 
 ### CLI
