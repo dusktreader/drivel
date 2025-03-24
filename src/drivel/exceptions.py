@@ -12,3 +12,11 @@ traceback.install()
 
 class DrivelException(buzz.Buzz):
     pass
+
+
+class ThemeNotFound(DrivelException):
+    pass
+
+
+class ThemeReadError(DrivelException):
+    pass

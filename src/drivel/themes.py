@@ -1,15 +1,15 @@
 import re
+from collections.abc import Generator
 from pathlib import Path
 from random import shuffle
-from typing import Generator
 
+import yaml
 from auto_name_enum import AutoNameEnum, auto
 from loguru import logger
-import strictyaml
 from pydantic import BaseModel, model_validator
 
 from drivel.constants import DEFAULT_THEME
-from drivel.exceptions import DrivelException
+from drivel.exceptions import ThemeNotFound, ThemeReadError
 from drivel.utilities import asset_root
 
 
@@ -18,10 +18,10 @@ kind_pattern = r"^[a-z0-9-]+$"
 
 
 class Display(AutoNameEnum):
-    kebab = auto()
-    snake = auto()
-    title = auto()
-    upper = auto()
+    kebab_case = auto()
+    snake_case = auto()
+    title_case = auto()
+    upper_case = auto()
 
 
 class ThemeMetadata(BaseModel):
@@ -66,20 +66,41 @@ class Theme(BaseModel):
             return items
         return items[:max_count]
 
-    @classmethod
-    def load(cls, name: str = DEFAULT_THEME) -> "Theme":
-        theme_path = asset_root / f"{name}.yaml"
-        with DrivelException.handle_errors(f"Theme '{name}' not found"):
-            text = theme_path.read_text()
-        data = strictyaml.load(text).data
-        return Theme(name=name, **data)
+    @staticmethod
+    def _find(name: str, *search_paths: Path) -> Path:
+        for search_path in search_paths:
+            for path in search_path.iterdir():
+                if path.is_file() and path.name == f"{name}.yaml":
+                    return path
+        raise ThemeNotFound(f"Theme '{name}' not found in paths: {search_paths}")
 
     @classmethod
-    def names(cls) -> Generator[str, None, None]:
-        for asset in asset_root.iterdir():
-            if not asset.is_file:
+    def load(cls, name: str = DEFAULT_THEME, *extra_paths: Path) -> "Theme":
+        builtin_path = Path(str(asset_root))
+
+        path = cls._find(name, builtin_path, *extra_paths)
+
+        with ThemeReadError.handle_errors(f"Couldn't read theme '{name}' from {path}"):
+            text = path.read_text()
+            data = yaml.safe_load(text)
+            theme = Theme(name=name, **data)
+
+        return theme
+
+    @classmethod
+    def names(cls, *extra_paths: Path) -> set[str]:
+        builtin_path = Path(str(asset_root))
+
+        names: set[str] = set()
+        for asset in builtin_path.iterdir():
+            if not asset.is_file():
                 continue
             filename = Path(asset.name)
             if filename.suffix != ".yaml":
                 continue
-            yield filename.stem
+            name: str = ThemeError.enforce_defined(filename.stem, f"Invalid theme file found in {builtin_path}: {filename}")
+            set.add(names, filename.stem)
+
+        ThemeError.require_condition(name not in names, f"Duplicate theme name found: {name}")
+
+        return names

@@ -1,5 +1,5 @@
 [![Build Status](https://github.com/dusktreader/drivel/actions/workflows/push.yaml/badge.svg)](https://github.com/dusktreader/drivel/actions/workflows/push.yaml)
-[![PyPI Versions](https://img.shields.io/pypi/v/drivel?style=plastic&label=pypi-version)](https://img.shields.io/pypi/v/drivel?style=plastic&label=pypi-version)
+[![PyPI Versions](https://img.shields.io/pypi/v/py-drivel?style=plastic&label=pypi-version)](https://img.shields.io/pypi/v/py-drivel?style=plastic&label=pypi-version)
 
 > [!IMPORTANT]
 > I'm looking for a job right now! If you know of any openings that match my skill-set,
@@ -13,10 +13,11 @@
 `drivel` is a package and CLI application to provide you with
 [metasyntactic](https://en.wikipedia.org/wiki/Metasyntactic_variable) name values.
 
-It is a port/modernization of the [metasyntactic](https://github.com/ask/metasyntactic) package that is quite old and
-unmaintained.
+It is heavily inspired by the [metasyntactic](https://github.com/ask/metasyntactic) package. However, `metasyntactic`
+is quite old and it is unmaintained.
 
-There are a few more categories added in.
+Drivel is a modern package that borrows many of the themes from `metasyntactic`, used others for inspiratoin, and adds a
+few new ones.
 
 
 ## Quickstart
