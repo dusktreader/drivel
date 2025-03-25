@@ -411,16 +411,16 @@ wheels = [
 
 [[package]]
 name = "py-buzz"
-version = "6.0.2"
+version = "6.0.3"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/06/08/a09f5a1c37f4161af91e1015e139ffbf42836ac4c97f10f85603c298a2a2/py_buzz-6.0.2.tar.gz", hash = "sha256:1837653dda060625c6b7c13b9c2060f4c8df914a14b9197c94d637ef812e7e3f", size = 7688 }
+sdist = { url = "https://files.pythonhosted.org/packages/9c/ce/894ff68c6dd132ce408e08ab1ae0cb440d6c07b5e1579c902dcecd681edd/py_buzz-6.0.3.tar.gz", hash = "sha256:2f95985fbaed5e111455147592a3bb94d5a6b8afd6c3537f1e141acbc47830fb", size = 7714 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3e/8b/d29f7c98fde1e872b5a916859cab1c1c13cded3c9e1488716a75a9146ba6/py_buzz-6.0.2-py3-none-any.whl", hash = "sha256:4a218f3c138d0966595717a303bc4371604b47dc6394496ffee841078080c4ea", size = 7721 },
+    { url = "https://files.pythonhosted.org/packages/c9/39/087e9ce9316fd14f1d1ab3ee4a540a4fcd637cac7e2872a81c0dc4c59700/py_buzz-6.0.3-py3-none-any.whl", hash = "sha256:20367dbcd5cd0717dfe44d54edb92a5f8a82ef38cac2e4d774f7fa5acdf612b9", size = 7873 },
 ]
 
 [[package]]
 name = "py-drivel"
-version = "0.1.0"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "auto-name-enum" },
@@ -445,6 +445,8 @@ dev = [
     { name = "pytest-cov" },
     { name = "pytest-random-order" },
     { name = "ruff" },
+    { name = "types-pyyaml" },
+    { name = "types-toml" },
 ]
 
 [package.metadata]
@@ -452,7 +454,7 @@ requires-dist = [
     { name = "auto-name-enum", specifier = ">=2.0.0" },
     { name = "inflection", specifier = ">=0.5.1" },
     { name = "loguru", specifier = ">=0.7.3" },
-    { name = "py-buzz", specifier = "~=6.0.0" },
+    { name = "py-buzz", specifier = "~=6.0.3" },
     { name = "pydantic", specifier = ">=2.10.6" },
     { name = "pyperclip", specifier = ">=1.9.0" },
     { name = "pyyaml", specifier = ">=6.0.2" },
@@ -470,6 +472,8 @@ dev = [
     { name = "pytest-cov", specifier = ">=6.0.0" },
     { name = "pytest-random-order", specifier = ">=1.1.1" },
     { name = "ruff", specifier = ">=0.11.2" },
+    { name = "types-pyyaml", specifier = ">=6.0.12.20241230" },
+    { name = "types-toml", specifier = ">=0.10.8.20240310" },
 ]
 
 [[package]]
@@ -815,6 +819,24 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/8b/6f/3991f0f1c7fcb2df31aef28e0594d8d54b05393a0e4e34c65e475c2a5d41/typer-0.15.2.tar.gz", hash = "sha256:ab2fab47533a813c49fe1f16b1a370fd5819099c00b119e0633df65f22144ba5", size = 100711 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7f/fc/5b29fea8cee020515ca82cc68e3b8e1e34bb19a3535ad854cac9257b414c/typer-0.15.2-py3-none-any.whl", hash = "sha256:46a499c6107d645a9c13f7ee46c5d5096cae6f5fc57dd11eccbbb9ae3e44ddfc", size = 45061 },
+]
+
+[[package]]
+name = "types-pyyaml"
+version = "6.0.12.20241230"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9a/f9/4d566925bcf9396136c0a2e5dc7e230ff08d86fa011a69888dd184469d80/types_pyyaml-6.0.12.20241230.tar.gz", hash = "sha256:7f07622dbd34bb9c8b264fe860a17e0efcad00d50b5f27e93984909d9363498c", size = 17078 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e8/c1/48474fbead512b70ccdb4f81ba5eb4a58f69d100ba19f17c92c0c4f50ae6/types_PyYAML-6.0.12.20241230-py3-none-any.whl", hash = "sha256:fa4d32565219b68e6dee5f67534c722e53c00d1cfc09c435ef04d7353e1e96e6", size = 20029 },
+]
+
+[[package]]
+name = "types-toml"
+version = "0.10.8.20240310"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/86/47/3e4c75042792bff8e90d7991aa5c51812cc668828cc6cce711e97f63a607/types-toml-0.10.8.20240310.tar.gz", hash = "sha256:3d41501302972436a6b8b239c850b26689657e25281b48ff0ec06345b8830331", size = 4392 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/da/a2/d32ab58c0b216912638b140ab2170ee4b8644067c293b170e19fba340ccc/types_toml-0.10.8.20240310-py3-none-any.whl", hash = "sha256:627b47775d25fa29977d9c70dc0cbab3f314f32c8d8d0c012f2ef5de7aaec05d", size = 4777 },
 ]
 
 [[package]]

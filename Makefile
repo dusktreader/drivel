@@ -16,7 +16,7 @@ lint:
 	uv run ruff check ${PACKAGE_TARGET} tests
 
 .PHONY: qa
-qa: test lint #types
+qa: test lint types
 	echo "All quality checks pass!"
 
 .PHONY: format

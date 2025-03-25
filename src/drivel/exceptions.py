@@ -10,13 +10,21 @@ from rich import traceback
 traceback.install()
 
 
-class DrivelException(buzz.Buzz):
+class DrivelError(buzz.Buzz):
     pass
 
 
-class ThemeNotFound(DrivelException):
+class ThemeNotFound(DrivelError):
     pass
 
 
-class ThemeReadError(DrivelException):
+class ThemeReadError(DrivelError):
+    pass
+
+
+class ThemeWriteError(DrivelError):
+    pass
+
+
+class DuplicateTheme(DrivelError):
     pass

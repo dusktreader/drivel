@@ -1,4 +1,4 @@
-import snick
+from typing import Annotated
 import typer
 
 from drivel.cli.config import cli as config_cli
@@ -16,11 +16,11 @@ cli = typer.Typer(rich_markup_mode="rich")
 @cli.callback(invoke_without_command=True)
 def main(
     ctx: typer.Context,
-    verbose: bool = typer.Option(False, help="Enable verbose logging to the terminal"),
-    version: bool = typer.Option(False, help="Print the version of this app and exit"),
+    verbose: Annotated[bool, typer.Option(help="Enable verbose logging to the terminal")] = False,
+    version: Annotated[bool, typer.Option(help="Print the version of this app and exit")] = False,
 ):
     """
-    Welcome to meta-fun!
+    Welcome to drivel!
 
     More information can be shown for each command listed below by running it with the
     --help option.
@@ -31,13 +31,10 @@ def main(
         ctx.exit()
 
     if ctx.invoked_subcommand is None:
+        ctx.get_help()
         terminal_message(
-            snick.conjoin(
-                "No command provided. Please check [bold magenta]usage[/bold magenta]",
-                "",
-                f"[yellow]{ctx.get_help()}[/yellow]",
-            ),
-            subject="Need an Armasec command",
+            "No command provided. Please check [bold magenta]usage[/bold magenta]",
+            subject="Need an drivel command",
         )
         ctx.exit()
 
