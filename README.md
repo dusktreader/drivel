@@ -10,13 +10,19 @@
 
 [//]: # (Add an asciicast)
 
-`drivel` is a package and CLI application to provide you with
-[metasyntactic](https://en.wikipedia.org/wiki/Metasyntactic_variable) name values.
+`drivel` is a package and CLI application to provide you with fun
+"[metasyntactic](https://en.wikipedia.org/wiki/Metasyntactic_variable)" name values. That term doesn't _sound_ fun, but
+let me explain.
+
+How often when you are programming, do you use "foo", "bar", "baz", etc. I get really bored of using these all the time,
+and if I need to use more than 3, I'm not really excited about the other traditional names that are used. That's where
+`drivel` comes in! Instead of "foobar", why not use Star Wars alien races like "jawa", "ewok", "hutt", etc. Or, how
+about Care Bears? Onomatopoeia words from Batman comics? It's all in `drivel`!
 
 It is heavily inspired by the [metasyntactic](https://github.com/ask/metasyntactic) package. However, `metasyntactic`
 is quite old and it is unmaintained.
 
-Drivel is a modern package that borrows many of the themes from `metasyntactic`, used others for inspiratoin, and adds a
+Drivel is a modern package that borrows many of the themes from `metasyntactic`, used others for inspiration, and adds a
 few new ones.
 
 
@@ -42,6 +48,14 @@ To get 10 metasyntactic names from the default theme, run:
 
 ```bash
 drivel give 10
+```
+
+```
+╭────────────────────────────────────────── Fun names from foobar ───────────────────────────────────────────╮
+│                                                                                                            │
+│   foo bar baz qux quux corge grault garply waldo fred                                                      │
+│                                                                                                            │
+╰─────────────────────────────────────────── Copied to clipboard! ───────────────────────────────────────────╯
 ```
 
 
